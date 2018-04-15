@@ -8,6 +8,7 @@
 
 ## Stuff you'll need
 In this project I'll use:
+
 | Material      | Units          | Price |
 | ------------- |:-------------:| -----:|
 | [Raspberry Pi Zero W](https://www.kubii.es/pi-zero-w/1851-raspberry-pi-zero-w-kubii-3272496006997.html)      | x2 | 10€/each |
