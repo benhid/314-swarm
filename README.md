@@ -35,17 +35,17 @@ In this project I'll use:
     $ sudo nmap -sn 192.168.1.0/24
     ```
     Note: This step is optional if you have set up static IP addresses for all your nodes.
-5. **ssh into your nodes (`ssh pi@192.168.1.XYZ`) and install Docker**. By default the password is _raspberry_. Then, for each node run:
+5. **SSH into your nodes (`ssh pi@192.168.1.XYZ`) and install Docker**. By default the password is _raspberry_. Then, for each node run:
     ```bash
     pi@raspberrypi:~ $ curl -sSL https://get.docker.com | sh
     ```
     Note: This will take a while!
 6. **Only in one node** initialize the swarm by using:
     ```bash
-    pi@raspberrypi:~ $ sudo docker swarm init --advertise-addr 192.168.1.XXX
+    pi@raspberrypi:~ $ sudo docker swarm init --advertise-addr 192.168.1.XYZ
     ```
     Where `192.168.1.XXX` is the IP of the current node. This will generate a command that will be used to add the rest of the nodes to the swarm.
-7. **ssh into the rest of the nodes** and run the command produced on the previus step to connect the swarm.
+7. **SSH into the rest of the nodes** and run the command produced on the previus step to connect the swarm.
 8. On the master node (the one from step 6), run:
     ```bash
     pi@raspberrypi:~ $ sudo docker node ls
@@ -75,7 +75,7 @@ xxxx viz  replicated 1/1      alexellis2/visualizer-arm:latest *:8080->8080/tcp
 
 To scale that image, run:
 ```
-pi@raspberrypi:~ $ sudo docker service scale viz=2
+pi@raspberrypi:~ $ sudo docker service scale viz=4
 ```
 
 At this point you should be able to visit `192.168.1.XYZ:8080` to see a nice swarm [visualizer](https://github.com/ManoMarks/docker-swarm-visualizer):
